@@ -51,7 +51,7 @@ resize(stageWidth, stageHeight){
           
           this.point.update();
           
-          ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.sin);
+          ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.PI);
           ctx.fill();
           
           /*
