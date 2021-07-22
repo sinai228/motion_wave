@@ -12,7 +12,7 @@ constructor (index, totalPoints, color) {
 }
 */
 export class Wave {
-constructor () {
+constructor () {}
         
 resize(stageWidth, stageHeight){
         this.stageWidth = stageWidth;
@@ -45,6 +45,7 @@ resize(stageWidth, stageHeight){
                         this.centerY,
                         )
         }
+}
   draw(ctx) {
         ctx.beginPath();
           ctx.fillStyle = 'ff0000';
@@ -80,5 +81,4 @@ resize(stageWidth, stageHeight){
                   ctx.fill();
                   ctx.closePath();
           */
-  }
-}
+ }
