@@ -9,6 +9,6 @@ constructor (x, y) {
 }
   update() {
     this.cur += this.speed;
-    this.y = this.FixedY + (Math.sin(this.cur) * this.max);
+    this.y = this.fixedY + (Math.sin(this.cur) * this.max);
   }
 }
