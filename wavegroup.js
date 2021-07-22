@@ -1,4 +1,4 @@
-import { 
+/*import { 
   Wave
 } from './wave.js';
 
@@ -35,3 +35,4 @@ draw(ctx) {
     }
   }
 }
+*/
