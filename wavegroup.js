@@ -15,7 +15,7 @@ export class WaveGroup {
       const wave = new Wave(
       i,
       this.totalPoints, 
-      this.color[i]
+      this.color[i],
         );
     this.waves[i] = wave;
       
