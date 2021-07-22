@@ -12,7 +12,8 @@ constructor (index, totalPoints, color) {
 }
 */
 export class Wave {
-constructor () {}
+    constructor () {
+}
         
    resize(stageWidth, stageHeight){
         this.stageWidth = stageWidth;
@@ -25,7 +26,13 @@ constructor () {}
         
         this.init();
 }
-  /*
+        init() {
+                this.point = new Point(
+                        this.centerX,
+                        this.centerY,
+                        )
+                
+                  /*
   init() {
   this.point = new Point(
   for (let i = 0; i < this.totalPoints; i++) {
@@ -39,11 +46,7 @@ constructor () {}
   );
   }
   */
-        init() {
-                this.point = new Point(
-                        this.centerX,
-                        this.centerY,
-                        )
+                
         }
   draw(ctx) {
         ctx.beginPath();
