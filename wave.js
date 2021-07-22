@@ -23,7 +23,7 @@ resize(stageWidth, stageHeight){
   draw(ctx) {
   
   ctx.beginPath();
-  ctx.fillStyle = '#ff000';
+  ctx.fillStyle = '#ff0000';
   
   this.point.update();
   
