@@ -12,7 +12,13 @@ export class WaveGroup {
     this.waves = [];
     
     for (let i = 0; i < this.totalWaves; i++) {
-      const wave = new Wave ();
+      const wave = new Wave(
+      i,
+      this.totalPoints, 
+      this.color[i]
+        );
+    this.waves[i] = wave;
+      
     }
   }
   resize(stageWidth, stageHeight) {
