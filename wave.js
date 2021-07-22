@@ -2,6 +2,7 @@ import {
 Point 
 } from './point.js';
 
+/*
 export class Wave {
 constructor (index, totalPoints, color) {
         this.index = index;
@@ -9,7 +10,10 @@ constructor (index, totalPoints, color) {
         this.color = color;
         this.points = [];
 }
-
+*/
+export class Wave {
+constructor () {
+        
 resize(stageWidth, stageHeight){
         this.stageWidth = stageWidth;
         this.stageHeight = stageHeight;
@@ -17,10 +21,11 @@ resize(stageWidth, stageHeight){
         this.centerX = stageWidth / 2;
         this.centerY = stageHeight / 2;
         
-        this.pointGap = this.stageWidth / (this.totalPoints - 1);
+        //this.pointGap = this.stageWidth / (this.totalPoints - 1);
         
         this.init();
 }
+  /*
   init() {
   this.point = new Point(
   for (let i = 0; i < this.totalPoints; i++) {
@@ -33,31 +38,47 @@ resize(stageWidth, stageHeight){
               
   );
   }
+  */
+        init() {
+                this.point = new Point(
+                        this.centerX,
+                        this.centerY;
+                        )
+        }
   draw(ctx) {
-  
-  ctx.beginPath();
-  ctx.fillStyle = this.color;
-  
-  let prevX = this.points[0].x;
-  let prevY = this.points[0].y;         
-  
-          ctx.moveTo(prevX, prevY);
+        ctx.beginPath();
+          ctx.fillStyle = 'ff0000';
           
-          for (let i = 0; i < this.totalPoints; i++){
-                  if (i - this.totalPoints - 1) {
-                          this.points[i].update();
-                  }
-                  const cx = (prevX + this.points[i].x) /2;
-                  const cy = (prevY + this.points[i].y) /2;
-                  
-                  ctx.lineTo(cx, cy);
-                  prevX = this.points[i].x;
-                  prevY = this.points[i].y;
-          }
-          ctx.lineTo(prevX, prevY);
-          ctx.lineTo(this.stageWidth, this.stageHeight);
+          this.point.update();
           
+          ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.sin);
           ctx.fill();
-          ctx.closePath();
+          
+          /*
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+
+          let prevX = this.points[0].x;
+          let prevY = this.points[0].y;         
+
+                  ctx.moveTo(prevX, prevY);
+
+                  for (let i = 0; i < this.totalPoints; i++){
+                          if (i - this.totalPoints - 1) {
+                                  this.points[i].update();
+                          }
+                          const cx = (prevX + this.points[i].x) /2;
+                          const cy = (prevY + this.points[i].y) /2;
+
+                          ctx.lineTo(cx, cy);
+                          prevX = this.points[i].x;
+                          prevY = this.points[i].y;
+                  }
+                  ctx.lineTo(prevX, prevY);
+                  ctx.lineTo(this.stageWidth, this.stageHeight);
+
+                  ctx.fill();
+                  ctx.closePath();
+          */
   }
 }
