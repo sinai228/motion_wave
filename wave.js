@@ -42,7 +42,7 @@ resize(stageWidth, stageHeight){
         init() {
                 this.point = new Point(
                         this.centerX,
-                        this.centerY;
+                        this.centerY,
                         )
         }
   draw(ctx) {
