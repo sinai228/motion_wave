@@ -1,6 +1,3 @@
-import {
-        Point
-} from './point.js';
 
 /*
 export class Wave {
@@ -54,7 +51,6 @@ this.points[i] = point;
 
                 ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.PI);
                 ctx.fill();
-
                 /*
                 ctx.beginPath();
                 ctx.fillStyle = this.color;
@@ -79,7 +75,6 @@ this.points[i] = point;
                         ctx.lineTo(this.stageWidth, this.stageHeight);
 
                         ctx.fill();
-                        ctx.closePath();
                 */
         }
 }
