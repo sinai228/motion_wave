@@ -8,8 +8,13 @@ constructor (index, totalPoints, color) {
         this.points = [];
 }
 */
-export class Wave {
+class Wave {
         constructor() {
+                this.stageWidth = document.body.clientWidth;
+                this.stageHeight = document.body.clientHeight;
+                this.centerx = this.stageWidth / 2;
+                this.centery = this.stageHeight / 2;
+                this.point = new Point(this.centerx, this.centery)
         }
 
         resize(stageWidth, stageHeight) {
@@ -20,15 +25,8 @@ export class Wave {
                 this.centerY = stageHeight / 2;
 
                 //this.pointGap = this.stageWidth / (this.totalPoints - 1);
+        }
 
-                this.init();
-        }
-        init() {
-                this.point = new Point(
-                        this.centerX,
-                        this.centerY
-                );
-        }
         /*
 init() {
 this.point = new Point(
@@ -45,12 +43,14 @@ this.points[i] = point;
 
         draw(ctx) {
                 ctx.beginPath();
-                ctx.fillStyle = 'ff0000';
+                ctx.fillStyle = '#ff0000';
 
                 this.point.update();
 
                 ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.PI);
                 ctx.fill();
+                ctx.closePath();
+
                 /*
                 ctx.beginPath();
                 ctx.fillStyle = this.color;
@@ -75,6 +75,7 @@ this.points[i] = point;
                         ctx.lineTo(this.stageWidth, this.stageHeight);
 
                         ctx.fill();
+                        ctx.closePath();
                 */
         }
 }

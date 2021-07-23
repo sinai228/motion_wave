@@ -65,14 +65,21 @@ class Wave {
     this.centerY = stageHeight / 2;
 
     //this.pointGap = this.stageWidth / (this.totalPoints - 1);
+  }
 
-  }
-  init() {
-    this.point = new Point(
-      this.centerX,
-      this.centerY
-    );
-  }
+  /*
+init() {
+this.point = new Point(
+for (let i = 0; i < this.totalPoints; i++) {
+const point = new Point(
+  this.index + i;
+  this.pointGap * i,
+  this.centerY,
+  );
+this.points[i] = point;
+
+);
+*/
 
   draw(ctx) {
     ctx.beginPath();
@@ -83,7 +90,44 @@ class Wave {
     ctx.arc(this.point.x, this.point.y, 30, 0, 2 * Math.PI);
     ctx.fill();
     ctx.closePath();
+  }
+}
+class WaveGroup {
+  constructor() {
+    this.totalWaves = 1;
+    this.totalPoints = 6;
 
+    this.color = ['rgba(0,199,235,0.4)', 'rgba(0,146,199,0.4)', 'rgba(0,87,158,0.4)'];
+
+    this.waves = [];
+
+    for (let i = 0; i < this.totalWaves; i++) {
+      const wave = new Wave(
+        i,
+        this.totalPoints,
+        this.color[i],
+      );
+      this.waves[i] = wave;
+    }
+    this.stageWidth = document.body.clientWidth;
+    this.stageHeight = document.body.clientHeight;
+    this.centerx = this.stageWidth / 2;
+    this.centery = this.stageHeight / 2;
+    this.pointGap = this.stageWidth / (this.totalPoints - 1);
+
+  }
+  resize() {
+    for (let i = 0; i < this.totalWaves; i++) {
+      const wave = this.waves[i];
+      wave.resize();
+    }
+  }
+
+  draw(ctx) {
+    for (let i = 0; i < this.totalWaves; i++) {
+      const wave = this.waves[i];
+      wave.draw(this.ctx);
+    }
   }
 }
 
