@@ -116,10 +116,10 @@ class Point {
 
 class WaveGroup {
   constructor() {
-    this.totalWaves = 4;
-    this.totalPoints = 6;
+    this.totalWaves = 5;
+    this.totalPoints = 8;
 
-    this.color = ['rgba(0,199,235,0.4)', 'rgba(0,146,199,0.4)', 'rgba(0,87,158,0.4)', 'rgba(0,140,235,0.4)', 'rgba(0,199,235,0.4)'];
+    this.color = ['rgba(100,199,185,0.4)', 'rgba(0,197,235,0.4)', 'rgba(0,199,247,0.4)', 'rgba(0,146,199,0.4)', 'rgba(0,87,158,0.4)', 'rgba(0,140,235,0.4)', 'rgba(0,199,235,0.4)'];
 
     this.waves = [];
 
