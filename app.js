@@ -4,11 +4,11 @@ class App {
     this.ctx = this.canvas.getContext('2d');
     document.body.appendChild(this.canvas);
 
-//  window.addEventListener('resize', this.resize.bind(this), {
-//             once: false,
-//             passive: false,
-//             capture: false,
-//         });
+    //  window.addEventListener('resize', this.resize.bind(this), {
+    //             once: false,
+    //             passive: false,
+    //             capture: false,
+    //         });
 
     this.waveGroup = new WaveGroup();
 
@@ -41,11 +41,11 @@ class App {
 
 class Wave {
   constructor(index, totalPoints, color) {
-        this.index = index;
-        this.totalPoints = totalPoints;
-        this.color = color;
-        this.points = [];
- 
+    this.index = index;
+    this.totalPoints = totalPoints;
+    this.color = color;
+    this.points = [];
+
   }
 
   resize(stageWidth, stageHeight) {
@@ -59,42 +59,43 @@ class Wave {
     this.init();
   }
 
- 
 
-    init() {
-        for (let i = 0; i < this.totalPoints; i++) {
-            this.points[i] = new Point(this.index + i, this.pointGap * i, this.centerY);
-        }
 
-}
+  init() {
+    for (let i = 0; i < this.totalPoints; i++) {
+      this.points[i] = new Point(this.index + i, this.pointGap * i, this.centerY);
+    }
+
+  }
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.color;
-    
+
     let prevX = this.points[0].x;
     let prevY = this.points[0].y;
-    
+
     ctx.moveTo(prevX, prevY);
 
-    for (let i = 0; i < this.totalPoints; i++){
-        if (i > 0 && i < this.totalPoints - 1) {
-this.points[i].update();
-              }
-const cx = (prevX + this.points[i].x) /2;
-const cy = (prevY + this.points[i].y) /2;
-  ctx.quadraticCurveTo(prevX, prevY, cx, cy);
-            prevX = this.points[i].x;
-              prevY = this.points[i].y;
-                        }
+    for (let i = 0; i < this.totalPoints; i++) {
+      if (i > 0 && i < this.totalPoints - 1) {
+        this.points[i].update();
+      }
+      const cx = (prevX + this.points[i].x) / 2;
+      const cy = (prevY + this.points[i].y) / 2;
+      ctx.quadraticCurveTo(prevX, prevY, cx, cy);
+      prevX = this.points[i].x;
+      prevY = this.points[i].y;
+    }
 
 
-                        ctx.lineTo(prevX, prevY);
-                        ctx.lineTo(this.stageWidth, this.stageHeight);
-                                ctx.lineTo(this.points[0].x, this.stageHeight);
+    ctx.lineTo(prevX, prevY);
+    ctx.lineTo(this.stageWidth, this.stageHeight);
+    ctx.lineTo(this.points[0].x, this.stageHeight);
 
-                        ctx.fill();
-                        ctx.closePath();
-  }}
+    ctx.fill();
+    ctx.closePath();
+  }
+}
 
 
 class Point {
@@ -104,7 +105,7 @@ class Point {
     this.fixedY = y;
     this.speed = 0.1;
     this.cur = index;
-    this.max = Math.random() * 100 + 150;
+    this.max = Math.random() * 90 + 20;
   }
   update() {
     this.cur += this.speed;
@@ -130,7 +131,7 @@ class WaveGroup {
       );
       this.waves[i] = wave;
     }
-   
+
 
   }
   resize(stageWidth, stageHeight) {
